@@ -1,0 +1,57 @@
+float circleX;
+float circleY;
+float xSpeed=2;
+float ySpeed=2;
+boolean going = false;
+
+void setup() {
+  size(640, 360);
+  circleX = width/2;
+  circleY=random(0,height);
+}
+
+void draw() {
+  //Drawing stuff
+  background(50);
+  displayBall();
+  moveBall();
+  checkEdges();
+ 
+
+  /*println is very good for debugging. Prints info into the console. 
+  You can add extra lable into the text by adding it to a string.*/
+  println("circleX " + circleX); 
+}
+  
+  
+
+
+//Draws a ball on the screen.
+void displayBall(){
+  fill(255);
+  ellipse(circleX, circleY, 24, 24);
+}
+
+// Move a ball by xSpeed or ySpeed 
+void moveBall(){
+    //Logic
+  if (going) {
+   circleX=circleX+xSpeed;
+   circleY=circleY+ySpeed;
+  }
+
+//Checks if ball is going. If going then mouse press makes it not go. If not going mouse press will make it go.
+  void mousePressed(){
+    going=!going;
+    }
+}
+
+      //Conditional. If ball hits wall, TURN AROUND
+void checkEdges(){
+  if(circleX > width || circleX < 0){
+    xSpeed = xSpeed*-1;
+  }
+  if(circleY > height || circleY < 0){
+    ySpeed = ySpeed*-1;
+  }
+}
