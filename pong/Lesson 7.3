@@ -32,6 +32,11 @@ void displayBall(){
   ellipse(circleX, circleY, 24, 24);
 }
 
+//Checks if ball is going. If going then mouse press makes it not go. If not going mouse press will make it go.
+  void mousePressed(){
+    going=!going;
+    }
+
 // Move a ball by xSpeed or ySpeed 
 void moveBall(){
     //Logic
@@ -39,11 +44,6 @@ void moveBall(){
    circleX=circleX+xSpeed;
    circleY=circleY+ySpeed;
   }
-
-//Checks if ball is going. If going then mouse press makes it not go. If not going mouse press will make it go.
-  void mousePressed(){
-    going=!going;
-    }
 }
 
       //Conditional. If ball hits wall, TURN AROUND
